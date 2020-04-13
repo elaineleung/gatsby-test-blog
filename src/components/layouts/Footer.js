@@ -7,7 +7,7 @@ export default () =>
     <p>
       <a href="https://prismic.io" target="_blank" rel="noopener noreferrer">
       <img className="footer-logo" src={ prismicLogo } alt="Gray Prismic logo"/>
-      </a>&nbsp;
+      </a>
       <a href="https://github.com/elaineleung/gatsby-test-blog" target="_blank" rel="noopener noreferrer">
       <img className="footer-logo github" src={ githubLogo } alt="GitHub"/>
       </a>
