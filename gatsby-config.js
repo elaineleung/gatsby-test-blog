@@ -1,11 +1,17 @@
 const { apiEndpoint } = require('./prismic-config');
 var repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint);
 
+const website = require('./config/website')
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+
 module.exports = {
+  pathPrefix: website.pathPrefix,
   siteMetadata: {
-    title: `Gatsby Prismic Blog`,
-    description: `Blog example for Gatsby & Prismic`,
-    author: `@levimykel`,
+    siteUrl: website.url + pathPrefix,
+    title: website.title,
+    description: website.description,
+    headline: website.headline,
+    author: website.author,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,11 +33,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        name: `gatsby-prismic-blog`,
+        short_name: website.titleAlt,
+        start_url: pathPrefix,
+        background_color: website.backgroundColor,
+        theme_color: website.themeColor,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },

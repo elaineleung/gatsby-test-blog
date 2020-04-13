@@ -1,6 +1,13 @@
 
 .post-header {
-  padding: 20px 0;
+  padding: 0em 0em 2em;
+
+  .blog-post-meta {
+    // margin-bottom: 8px;
+    font-size: 16px;
+    font-family: $font-sans-serif;
+    color: #9A9A9A;
+  }
 
   .back {
     color: #9A9A9A;
@@ -25,4 +32,11 @@
       }
     }
   }
+}
+
+.post-content {
+  padding: 0em 0 1em;
+  
+
+
 }

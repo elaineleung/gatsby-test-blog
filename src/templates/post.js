@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
+import { RichText, Date } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { ImageCaption, Quote, Text } from '../components/slices'
 
@@ -82,17 +82,30 @@ const PostSlices = ({ slices }) => {
 
 // Display the title, date, and content of the Post
 const PostBody = ({ blogPost }) => {
+
+  const postDate = Date(blogPost.date)
+  const formattedDate =  new Intl.DateTimeFormat('en-US', {
+    month: 'short', 
+    day: '2-digit', 
+    year: 'numeric'
+  }).format(postDate)
+
+  console.log({postDate})
+
   const titled = blogPost.title.length !== 0 ;
   return (
-    <div>
+    <div className="post-content">
       <div className="container post-header">
         <div className="back">
-          <Link to="/">back to list</Link>
+          <Link to="/">Back to list</Link>
         </div>
         {/* Render the edit button */}
-        <h1 data-wio-id={ blogPost._meta.id }>
+        <h2 data-wio-id={ blogPost._meta.id }>
           { titled ? RichText.asText(blogPost.title) : 'Untitled' }
-        </h1>
+        </h2>
+        <p className="blog-post-meta">
+          <time>Posted on { formattedDate }</time>
+        </p>
       </div>
       {/* Go through the slices of the post and render the appropiate one */}
       <PostSlices slices={ blogPost.body } />
