@@ -1,12 +1,18 @@
 
 .post-header {
-  padding: 0em 0em 2em;
+  padding: 0em 0em 1em;
+  margin: 0 auto 1em;
+
+  h2 {
+
+  }
 
   .blog-post-meta {
     // margin-bottom: 8px;
     font-size: 16px;
     font-family: $font-sans-serif;
     color: #9A9A9A;
+    margin: 0em;
   }
 
   .back {
