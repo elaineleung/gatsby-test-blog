@@ -59,6 +59,7 @@ const BlogHomeHead = ({ home }) => {
   );
 };
 
+
 export default ({ data }) => {
   // Define the Blog Home & Blog Post content returned from Prismic
   const doc = data.prismic.allBlog_homes.edges.slice(0,1).pop();
