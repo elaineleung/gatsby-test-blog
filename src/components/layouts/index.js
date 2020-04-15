@@ -6,18 +6,20 @@ import Footer from './Footer'
 import Header from './Header'
 import '../../stylesheets/main.scss'
 
+const query = graphql`
+  query SiteQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
+
 export default props => (
   <StaticQuery
-    query={graphql`
-      query SiteQuery {
-        site {
-          siteMetadata {
-            title
-            description
-          }
-        }
-      }
-    `}
+    query={`${query}`}
     render={ data => <Layout data={ data } { ...props }/> }
   />
 )
